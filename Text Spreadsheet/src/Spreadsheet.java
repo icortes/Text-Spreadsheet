@@ -12,12 +12,10 @@ public class Spreadsheet {
 		while (!inputFromUser.equalsIgnoreCase("quit")) {
 			int indexOfEquals = inputFromUser.indexOf("=");
 			if (inputFromUser.contains("clear")
-					&& inputFromUser.indexOf(6) != -1) {
+					&& inputFromUser.indexOf(" ") != -1) {
 				cellToClear(inputFromUser, spreadsheet);
-				printSpreadsheet(spreadsheet);
 			} else if (inputFromUser.equalsIgnoreCase("clear")) {
 				setSpreadsheetToEmpty(spreadsheet);
-				printSpreadsheet(spreadsheet);
 			} else if (indexOfEquals >= 0) {
 				String cellToSet = inputFromUser.substring(0, indexOfEquals)
 						.trim();
@@ -26,20 +24,21 @@ public class Spreadsheet {
 				int col = getColNumber(cellToSet);
 				Cell cell = new Cell(cellVal);
 				spreadsheet[row][col] = cell;
-				printSpreadsheet(spreadsheet);
 			} else if (indexOfEquals == -1) {
 				String cell = inputFromUser;
 				int row = getRowNumber(cell);
 				int col = getColNumber(cell);
 				System.out.println(spreadsheet[row][col]);
 			}
+			printSpreadsheet(spreadsheet);
 			inputFromUser = inputFromUser();
 		}
 	}
 
 	private static void cellToClear(String cell, Cell[][] spreadsheet) {
-		int row = getRowNumber(cell);
-		int col = getColNumber(cell);
+		int row = getRowNumber(cell.substring(cell.indexOf(" ")+1));
+		int col = getColNumber(cell.substring(cell.indexOf(" ")+1));
+		
 		spreadsheet[row][col] = new Cell("");
 	}
 
