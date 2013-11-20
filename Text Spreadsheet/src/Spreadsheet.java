@@ -1,11 +1,58 @@
+import java.util.Scanner;
+
 public class Spreadsheet {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Cell[][] spreadsheet = new Cell[12][22];
 		setSpreadsheetToEmpty(spreadsheet);
-
 		printSpreadsheet(spreadsheet);
+
+		String inputFromUser = inputFromUser();
+		while (!inputFromUser.equalsIgnoreCase("quit")) {
+			int indexOfEquals = inputFromUser.indexOf("=");
+			if (inputFromUser.contains("clear")
+					&& inputFromUser.indexOf(6) != -1) {
+				cellToClear(inputFromUser, spreadsheet);
+				printSpreadsheet(spreadsheet);
+			} else if (inputFromUser.equalsIgnoreCase("clear")) {
+				setSpreadsheetToEmpty(spreadsheet);
+				printSpreadsheet(spreadsheet);
+			} else if (indexOfEquals >= 0) {
+				String cellToSet = inputFromUser.substring(0, indexOfEquals)
+						.trim();
+				String cellVal = inputFromUser.substring(indexOfEquals + 1);
+				int row = getRowNumber(cellToSet);
+				int col = getColNumber(cellToSet);
+				Cell cell = new Cell(cellVal);
+				spreadsheet[row][col] = cell;
+				printSpreadsheet(spreadsheet);
+			} else if (indexOfEquals == -1) {
+				String cell = inputFromUser;
+				int row = getRowNumber(cell);
+				int col = getColNumber(cell);
+				System.out.println(spreadsheet[row][col]);
+			}
+			inputFromUser = inputFromUser();
+		}
+	}
+
+	private static void cellToClear(String cell, Cell[][] spreadsheet) {
+		int row = getRowNumber(cell);
+		int col = getColNumber(cell);
+		spreadsheet[row][col] = new Cell("");
+	}
+
+	private static int getColNumber(String cell) {
+		return Character.getNumericValue(cell.charAt(0)) - 10;
+	}
+
+	private static int getRowNumber(String cell) {
+		return Integer.parseInt(cell.substring(1)) - 1;
+	}
+
+	private static String inputFromUser() {
+		return new Scanner(System.in).nextLine();
 	}
 
 	private static void printSpreadsheet(Cell[][] spreadsheet) {
