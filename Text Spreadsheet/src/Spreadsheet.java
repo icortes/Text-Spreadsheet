@@ -25,10 +25,14 @@ public class Spreadsheet {
 				Cell cell = new Cell(cellVal);
 				spreadsheet[row][col] = cell;
 			} else if (indexOfEquals == -1) {
-				String cell = inputFromUser;
-				int row = getRowNumber(cell);
-				int col = getColNumber(cell);
-				System.out.println(spreadsheet[row][col]);
+				try {
+					String cell = inputFromUser;
+					int row = getRowNumber(cell);
+					int col = getColNumber(cell);
+					System.out.println(spreadsheet[row][col]);
+				} catch (Exception e) {
+					System.out.println("Nope.avi");
+				}
 			}
 			printSpreadsheet(spreadsheet);
 			inputFromUser = inputFromUser();
@@ -36,9 +40,9 @@ public class Spreadsheet {
 	}
 
 	private static void cellToClear(String cell, Cell[][] spreadsheet) {
-		int row = getRowNumber(cell.substring(cell.indexOf(" ")+1));
-		int col = getColNumber(cell.substring(cell.indexOf(" ")+1));
-		
+		int row = getRowNumber(cell.substring(cell.indexOf(" ") + 1));
+		int col = getColNumber(cell.substring(cell.indexOf(" ") + 1));
+
 		spreadsheet[row][col] = new Cell("");
 	}
 
