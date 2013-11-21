@@ -31,7 +31,7 @@ public class Spreadsheet {
 					int col = getColNumber(cell);
 					System.out.println(spreadsheet[row][col]);
 				} catch (Exception e) {
-					System.out.println("Nope.avi");
+					System.out.println("Please Try Again.");
 				}
 			}
 			printSpreadsheet(spreadsheet);
