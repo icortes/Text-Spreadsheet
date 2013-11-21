@@ -13,7 +13,9 @@ public class Spreadsheet {
 			int indexOfEquals = inputFromUser.indexOf("=");
 			if (inputFromUser.contains("clear")
 					&& inputFromUser.indexOf(" ") != -1) {
-				cellToClear(inputFromUser, spreadsheet);
+				cellToClear(
+						inputFromUser.substring(inputFromUser.indexOf(" ") + 1),
+						spreadsheet);
 			} else if (inputFromUser.equalsIgnoreCase("clear")) {
 				setSpreadsheetToEmpty(spreadsheet);
 			} else if (indexOfEquals >= 0) {
@@ -40,8 +42,8 @@ public class Spreadsheet {
 	}
 
 	private static void cellToClear(String cell, Cell[][] spreadsheet) {
-		int row = getRowNumber(cell.substring(cell.indexOf(" ") + 1));
-		int col = getColNumber(cell.substring(cell.indexOf(" ") + 1));
+		int row = getRowNumber(cell);
+		int col = getColNumber(cell);
 
 		spreadsheet[row][col] = new Cell("");
 	}
