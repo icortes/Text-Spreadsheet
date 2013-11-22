@@ -1,1 +1,11 @@
 Welcome to Text-Spreadsheet!
+
+This program takes input from the user and stores it in a 12x22 spreadsheet.
+
+Commands:
+
+<cell> 				//returns the value of the cell
+<cell> = <value> 	//sets the given value to the cell
+clear				//clears the entire spreadsheet
+clear <cell>		//clears the given cell
+quit				//quits the program
