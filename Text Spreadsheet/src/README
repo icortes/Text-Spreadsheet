@@ -4,8 +4,14 @@ This program takes input from the user and stores it in a 12x22 spreadsheet.
 
 Commands:
 
-<cell> 				//returns the value of the cell
-<cell> = <value> 	//sets the given value to the cell
-clear				//clears the entire spreadsheet
-clear <cell>		//clears the given cell
-quit				//quits the program
+<cell> 				Returns the value of the cell. A cell is set as a letter, from A to V,
+					with a number, from 1 to 12. Example: A1
+					 
+<cell> = <value> 	Sets the given value to the cell. Example A1 = 2
+
+clear				Clears the entire spreadsheet.
+
+clear <cell>		Clears the given cell. Example: clear A1
+
+quit				Quits the program
+
