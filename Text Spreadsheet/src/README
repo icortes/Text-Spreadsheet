@@ -14,4 +14,3 @@ clear				Clears the entire spreadsheet.
 clear <cell>		Clears the given cell. Example: clear A1
 
 quit				Quits the program
-
