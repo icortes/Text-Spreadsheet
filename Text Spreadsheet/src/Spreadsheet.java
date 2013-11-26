@@ -78,7 +78,7 @@ public class Spreadsheet {
 		for (int i = 0; i < 22; i++) {
 			int valOfA = (int) 'A';
 			char letterToOutput = (char) (i + valOfA);
-			headerString += String.format("     %c    |", letterToOutput);
+			headerString += String.format("          %c          |", letterToOutput);
 		}
 		System.out.println(headerString);
 	}
