@@ -1,6 +1,6 @@
 package Spreadsheet;
 
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.TextField;
 import java.util.Scanner;
 
@@ -21,15 +21,15 @@ public class Spreadsheet {
 		JPanel panel = new JPanel();
 		frame.setContentPane(panel);
 
-		panel.setLayout(new FlowLayout());
-		panel.add(headerLabel);
+		panel.setLayout(new GridLayout(12, 22));
+		//panel.add(headerLabel);
 		for (int row = 0; row < tf.length; row++) {
 			panel.add(new JLabel(String.format("%2d|", row + 1)));
 			for (int col = 0; col < tf[row].length; col++)
 				panel.add(tf[row][col]);
 		}
 
-		frame.setSize(1280,720);
+		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		// printSpreadsheet(spreadsheet);
