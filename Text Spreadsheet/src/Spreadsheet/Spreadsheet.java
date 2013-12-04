@@ -22,49 +22,18 @@ public class Spreadsheet {
 		frame.setContentPane(panel);
 
 		panel.setLayout(new GridLayout(12, 22));
-		//panel.add(headerLabel);
+		// panel.add(headerLabel);
 		for (int row = 0; row < tf.length; row++) {
 			panel.add(new JLabel(String.format("%2d|", row + 1)));
-			for (int col = 0; col < tf[row].length; col++)
+			for (int col = 0; col < tf[row].length; col++) {
 				panel.add(tf[row][col]);
+				tf[row][col].addKeyListener(this);
+			}
 		}
 
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		// printSpreadsheet(spreadsheet);
-		//
-		// String inputFromUser = inputFromUser();
-		// while (!inputFromUser.equalsIgnoreCase("quit")) {
-		// int indexOfEquals = inputFromUser.indexOf("=");
-		// if (inputFromUser.contains("clear")
-		// && inputFromUser.indexOf(" ") != -1) {
-		// cellToClear(
-		// inputFromUser.substring(inputFromUser.indexOf(" ") + 1),
-		// spreadsheet);
-		// } else if (inputFromUser.equalsIgnoreCase("clear")) {
-		// setSpreadsheetToEmpty(spreadsheet);
-		// } else if (indexOfEquals >= 0) {
-		// String cellToSet = inputFromUser.substring(0, indexOfEquals)
-		// .trim();
-		// String cellVal = inputFromUser.substring(indexOfEquals + 1);
-		// int row = getRowNumber(cellToSet);
-		// int col = getColNumber(cellToSet);
-		// Cell cell = new Cell(cellVal);
-		// spreadsheet[row][col] = cell;
-		// } else if (indexOfEquals == -1) {
-		// try {
-		// String cell = inputFromUser;
-		// int row = getRowNumber(cell);
-		// int col = getColNumber(cell);
-		// System.out.println(spreadsheet[row][col]);
-		// } catch (Exception e) {
-		// System.out.println("Please Try Again.");
-		// }
-		// }
-		// printSpreadsheet(spreadsheet);
-		// inputFromUser = inputFromUser();
-		// }
 	}
 
 	private static void cellToClear(String cell, Cell[][] spreadsheet) {
@@ -112,7 +81,7 @@ public class Spreadsheet {
 	private static void setTextFieldToEmpty(TextField[][] tf) {
 		for (int rowNum = 0; rowNum < tf.length; rowNum++) {
 			for (int colNum = 0; colNum < tf[rowNum].length; colNum++) {
-				tf[rowNum][colNum] = new TextField("");
+				tf[rowNum][colNum] = new TextField(String.format("%5s", ""));
 			}
 		}
 	}
