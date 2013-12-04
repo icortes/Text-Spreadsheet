@@ -1,17 +1,19 @@
 package Spreadsheet;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Cell extends TextField {
+import javax.swing.JFrame;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class TextField extends JFrame implements KeyListener, ActionListener{
 
-	public Cell(String value) {
-		super(value);
+	public String data;
+	public String a;
+
+	public TextField(String value) {
+		data = value;
 	}
 
 	public String getData() {
@@ -33,26 +35,26 @@ public class Cell extends TextField {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 }

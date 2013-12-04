@@ -27,7 +27,6 @@ public class Spreadsheet {
 			panel.add(new JLabel(String.format("%2d|", row + 1)));
 			for (int col = 0; col < tf[row].length; col++) {
 				panel.add(tf[row][col]);
-				tf[row][col].addKeyListener(this);
 			}
 		}
 
