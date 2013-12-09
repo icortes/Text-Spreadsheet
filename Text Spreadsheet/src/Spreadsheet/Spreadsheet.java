@@ -1,7 +1,6 @@
 package Spreadsheet;
 
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -11,10 +10,9 @@ import javax.swing.JPanel;
 public class Spreadsheet {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Cell[][] spreadsheet = new Cell[12][22];
-		TextField[][] tf = new TextField[12][22];
-		setTextFieldToEmpty(tf);
+		Cell[][] tf = new Cell[12][22];
+		setCellToEmpty(tf);
 
 		JFrame frame = new JFrame("Spreadsheet");
 		JLabel headerLabel = new JLabel(header());
@@ -77,10 +75,10 @@ public class Spreadsheet {
 		return headerString;
 	}
 
-	private static void setTextFieldToEmpty(TextField[][] tf) {
+	private static void setCellToEmpty(Cell[][] tf) {
 		for (int rowNum = 0; rowNum < tf.length; rowNum++) {
 			for (int colNum = 0; colNum < tf[rowNum].length; colNum++) {
-				tf[rowNum][colNum] = new TextField(String.format("%5s", ""));
+				tf[rowNum][colNum] = new Cell(String.format("%5s", ""));
 			}
 		}
 	}

@@ -1,7 +1,6 @@
 package Spreadsheet;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+import java.awt.TextField;
 
 public class Cell extends TextField {
 
@@ -9,6 +8,8 @@ public class Cell extends TextField {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String data;
+	private String a;
 
 	public Cell(String value) {
 		super(value);
@@ -30,29 +31,5 @@ public class Cell extends TextField {
 	public String toString() {
 		a = data;
 		return a;
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 }
