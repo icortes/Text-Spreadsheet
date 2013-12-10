@@ -1,6 +1,8 @@
 package Spreadsheet;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -10,8 +12,7 @@ import javax.swing.JPanel;
 public class Spreadsheet {
 
 	public static void main(String[] args) {
-		Cell[][] spreadsheet = new Cell[12][22];
-		Cell[][] tf = new Cell[12][22];
+		final Cell[][] tf = new Cell[12][22];
 		setCellToEmpty(tf);
 
 		JFrame frame = new JFrame("Spreadsheet");
@@ -24,6 +25,13 @@ public class Spreadsheet {
 		for (int row = 0; row < tf.length; row++) {
 			panel.add(new JLabel(String.format("%2d|", row + 1)));
 			for (int col = 0; col < tf[row].length; col++) {
+				tf[row][col].addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// action!!!!!
+					}
+				});
 				panel.add(tf[row][col]);
 			}
 		}
