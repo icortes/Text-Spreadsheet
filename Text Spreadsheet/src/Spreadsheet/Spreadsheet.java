@@ -1,10 +1,14 @@
 package Spreadsheet;
 
 import java.awt.GridLayout;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Scanner;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,14 +29,53 @@ public class Spreadsheet {
 		for (int row = 0; row < tf.length; row++) {
 			panel.add(new JLabel(String.format("%2d|", row + 1)));
 			for (int col = 0; col < tf[row].length; col++) {
+				panel.add(tf[row][col]);
 				tf[row][col].addActionListener(new ActionListener() {
-
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						// action!!!!!
+						JFrame frame = new JFrame("Spreadsheet");
+						JPanel panel = new JPanel();
+						frame.setContentPane(panel);
+
+						panel.add(new TextField(10));
+						JButton b = new JButton("Enter");
+						b.addMouseListener(new MouseListener() {
+
+							@Override
+							public void mouseClicked(MouseEvent e) {
+								// TODO Auto-generated method stub
+							}
+
+							@Override
+							public void mouseEntered(MouseEvent e) {
+								// TODO Auto-generated method stub
+
+							}
+
+							@Override
+							public void mouseExited(MouseEvent e) {
+								// TODO Auto-generated method stub
+
+							}
+
+							@Override
+							public void mousePressed(MouseEvent e) {
+								// TODO Auto-generated method stub
+
+							}
+
+							@Override
+							public void mouseReleased(MouseEvent e) {
+								// TODO Auto-generated method stub
+
+							}
+						});
+
+						frame.pack();
+						frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						frame.setVisible(true);
 					}
 				});
-				panel.add(tf[row][col]);
 			}
 		}
 

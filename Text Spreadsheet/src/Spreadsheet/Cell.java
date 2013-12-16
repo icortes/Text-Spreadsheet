@@ -13,6 +13,7 @@ public class Cell extends TextField {
 
 	public Cell(String value) {
 		super(value);
+		data = value;
 	}
 
 	public String getData() {
