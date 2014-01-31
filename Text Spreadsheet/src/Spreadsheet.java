@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class Spreadsheet {
+	private static int length;
 
 	public static void main(String[] args) {
-		Cell[][] spreadsheet = new Cell[12][22];
+		Cell[][] spreadsheet = new Cell[8][10];
+		length = spreadsheet[0].length;
 		setSpreadsheetToEmpty(spreadsheet);
 		printSpreadsheet(spreadsheet);
 
@@ -74,7 +76,7 @@ public class Spreadsheet {
 
 	private static void printHeader() {
 		String headerString = "  |";
-		for (int i = 0; i < 22; i++) {
+		for (int i = 0; i < length; i++) {
 			int valOfA = (int) 'A';
 			char letterToOutput = (char) (i + valOfA);
 			headerString += String.format("     %c    |", letterToOutput);
