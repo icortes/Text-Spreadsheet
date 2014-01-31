@@ -1,7 +1,6 @@
 public class Cell {
 
 	public String data;
-	public String a;
 
 	public Cell(String value) {
 		data = value;
@@ -21,7 +20,6 @@ public class Cell {
 	}
 
 	public String toString() {
-		a = data;
-		return a;
+		return data;
 	}
 }

@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Spreadsheet {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Cell[][] spreadsheet = new Cell[12][22];
 		setSpreadsheetToEmpty(spreadsheet);
 		printSpreadsheet(spreadsheet);
