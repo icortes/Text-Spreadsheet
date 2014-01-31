@@ -26,7 +26,11 @@ public class Spreadsheet {
 				int row = getRowNumber(cellToSet);
 				int col = getColNumber(cellToSet);
 				Cell cell = new Cell(cellVal);
-				spreadsheet[row][col] = cell;
+				try {
+					spreadsheet[row][col] = cell;
+				} catch (Exception e) {
+					System.out.println("Index out of bounds.");
+				}
 			} else if (indexOfEquals == -1) {
 				try {
 					String cell = inputFromUser;
